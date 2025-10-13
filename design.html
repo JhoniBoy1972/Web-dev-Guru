@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GruHub — Graphic Design</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0D0D0B;
+      --accent1:#FF00A8; /* magenta */
+      --accent2:#FF5F6D; /* warm pink */
+      --accent-link:#00FF80; /* brand green (used sparingly) */
+      --muted:rgba(255,255,255,0.15);
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#fff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      scroll-behavior:smooth;
+    }
+
+    h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+
+    /* animated gradient */
+    .gradient-bg{
+      position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:0.95;
+      background:linear-gradient(120deg,var(--accent1),var(--accent2));
+      mix-blend-mode:screen;filter:blur(80px);
+      animation:shift 12s ease-in-out infinite;
+    }
+    @keyframes shift{
+      0%{transform:translateY(-10px) scale(1)}
+      50%{transform:translateY(10px) scale(1.02)}
+      100%{transform:translateY(-10px) scale(1)}
+    }
+
+    /* overlay dark to retain contrast */
+    .dark-overlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(13,13,11,0.6),rgba(13,13,11,0.85));z-index:-1}
+
+    /* animated shapes */
+    .shape{position:absolute;opacity:0.12;mix-blend-mode:screen}
+    .shape--float{animation:floaty 6s ease-in-out infinite}
+    .shape--spin{animation:spin 14s linear infinite}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+    @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+    /* card & gallery styles */
+    .card-hover{transition:transform .35s cubic-bezier(.2,.9,.3,1),box-shadow .35s;}
+    .card-hover:hover{transform:translateY(-8px);box-shadow:0 10px 30px rgba(255,95,109,0.08);}
+
+    .overlay-hover{position:relative;overflow:hidden}
+    .overlay-hover img{transition:transform .6s ease}
+    .overlay-hover:hover img{transform:scale(1.06) translateY(-6px)}
+    .overlay-hover .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:18px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.55));opacity:0;transition:opacity .35s}
+    .overlay-hover:hover .overlay{opacity:1}
+
+    /* fade-up util (JS toggles .visible) */
+    .fade-up{opacity:0;transform:translateY(20px);transition:all .9s cubic-bezier(.2,.9,.3,1)}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+
+    /* CTA gradient button */
+    .btn-gradient{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff}
+    .btn-outline-green{border:2px solid var(--accent-link);color:var(--accent-link);background:transparent}
+
+    /* sticky nav blur */
+    .blur-nav{backdrop-filter:blur(10px);background:linear-gradient(90deg,rgba(0,0,0,0.45),rgba(0,0,0,0.3));border-bottom:1px solid rgba(255,255,255,0.03)}
+
+    /* small responsive tweaks */
+    @media (max-width:768px){
+      .hero-title{font-size:2.2rem}
+      .grid-cols-3{grid-template-columns:repeat(2, minmax(0,1fr))}
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg" aria-hidden="true"></div>
+  <div class="dark-overlay" aria-hidden="true"></div>
+
+  <!-- floating shapes -->
+  <svg class="shape shape--float" style="left:6%;top:12%;width:220px;height:220px;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.06)"/></svg>
+  <svg class="shape shape--spin" style="right:6%;bottom:10%;width:300px;height:300px;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="80" height="80" rx="14" fill="rgba(255,255,255,0.03)"/></svg>
+  <svg class="shape" style="left:50%;top:70%;width:260px;height:260px;transform:translateX(-50%);" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 80 Q 50 10 90 80" stroke="rgba(255,255,255,0.04)" stroke-width="2" fill="none"/></svg>
+
+  <!-- NAV -->
+  <nav id="navbar" class="fixed w-full top-0 z-40 transition-all duration-300 py-4 px-6 flex items-center justify-between">
+    <a href="index.html" class="text-2xl font-bold text-[var(--accent1)]">GruHub</a>
+    <ul class="hidden md:flex items-center space-x-8 text-sm text-white/85">
+      <li><a href="index.html#home" class="hover:text-[var(--accent1)]">Home</a></li>
+      <li><a href="index.html#about" class="hover:text-[var(--accent1)]">About</a></li>
+      <li><a href="index.html#skills" class="hover:text-[var(--accent1)]">Skills</a></li>
+      <li><a href="web.html" class="hover:text-[var(--accent1)]">Web</a></li>
+      <li><a href="music.html" class="hover:text-[var(--accent1)]">Music</a></li>
+      <li><a href="design.html" class="text-[var(--accent1)]">Design</a></li>
+      <li><a href="index.html#contact" class="hover:text-[var(--accent1)]">Contact</a></li>
+    </ul>
+    <button class="md:hidden text-[var(--accent1)] text-3xl">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="relative min-h-[72vh] flex items-center justify-center text-center px-6 pt-20">
+    <div class="max-w-3xl">
+      <div class="fade-up">
+        <h1 class="hero-title text-4xl md:text-6xl font-extrabold leading-tight">
+          Designs That <span style="color:var(--accent1)">Speak</span> Louder Than Words
+        </h1>
+        <p class="mt-4 text-gray-300 text-sm md:text-base max-w-2xl mx-auto">Posters, album art, logos and brand systems — crafted with concept-led thinking and high-fidelity execution.<span class="text-[var(--accent-link)]">&nbsp;We also connect visuals to sound.</span></p>
+
+        <div class="mt-8 flex items-center gap-4 justify-center">
+          <a href="#portfolio" class="btn-gradient px-6 py-3 rounded-lg font-semibold shadow-sm">View Portfolio</a>
+          <a href="index.html#contact" class="btn-outline-green px-5 py-3 rounded-lg font-semibold">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- hero floating icons -->
+    <svg class="shape shape--float" style="right:8%;top:20%;width:120px;height:120px;" viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3z" fill="rgba(255,255,255,0.03)"/></svg>
+    <svg class="shape" style="left:8%;bottom:18%;width:140px;height:140px;" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.02)"/></svg>
+  </header>
+
+  <!-- SERVICES -->
+  <section class="py-12 px-6 md:px-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="fade-up text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Creative Services</h2>
+        <p class="text-gray-300 text-sm md:text-base mt-2">Logo systems, posters, album art, brand kits — each service tailored to fit your story and platform.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-hover p-6 rounded-2xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] fade-up">
+          <h3 class="text-xl font-semibold text-[var(--accent1)] mb-2">Logo & Identity</h3>
+          <p class="text-gray-300 text-sm mb-4">Flexible logo systems, usage guidelines and vector delivery.</p>
+          <div class="flex gap-3" aria-hidden>
+            <span class="inline-block w-8 h-8 rounded bg-[rgba(255,255,255,0.03)]"></span>
+            <span class="inline-block w-8 h-8 rounded bg-[rgba(255,255,255,0.03)]"></span>
+            <span class="inline-block w-8 h-8 rounded bg-[rgba(255,255,255,0.03)]"></span>
+          </div>
+        </div>
+
+        <div class="card-hover p-6 rounded-2xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] fade-up">
+          <h3 class="text-xl font-semibold text-[var(--accent1)] mb-2">Poster & Print</h3>
+          <p class="text-gray-300 text-sm mb-4">High-impact posters, event art and printed collateral designed for both digital and print media.</p>
+          <div class="flex gap-3" aria-hidden>
+            <span class="inline-block w-8 h-8 rounded bg-[rgba(255,255,255,0.03)]"></span>
+            <span class="inline-block w-8 h-8 rounded bg-[rgba(255,255,255,0.03)]"></span>
+          </div>
+        </div>
+
+        <div class="card-hover p-6 rounded-2xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] fade-up">
+          <h3 class="text-xl font-semibold text-[var(--accent1)] mb-2">Album & Cover Art</h3>
+          <p class="text-gray-300 text-sm mb-4">Covers and visuals that translate sound into a strong visual identity.</p>
+          <div class="flex gap-3" aria-hidden>
+            <span class="inline-block w-8 h-8 rounded bg-[rgba(255,255,255,0.03)]"></span>
+            <span class="inline-block w-8 h-8 rounded bg-[rgba(255,255,255,0.03)]"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="py-12 px-6 md:px-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="fade-up text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Selected Works</h2>
+        <p class="text-gray-300 text-sm mt-2">A small selection — click to view or request the full case study.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- card 1 -->
+        <div class="overlay-hover rounded-xl overflow-hidden border border-[rgba(255,255,255,0.04)] fade-up">
+          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=fc3b1e7f3c6b" alt="project mock" class="w-full h-56 object-cover"/>
+          <div class="overlay">
+            <div class="text-left w-full px-4">
+              <h3 class="text-lg font-semibold">Neon Festival Poster</h3>
+              <p class="text-xs text-gray-300">Poster and promo package</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- card 2 -->
+        <div class="overlay-hover rounded-xl overflow-hidden border border-[rgba(255,255,255,0.04)] fade-up">
+          <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0d8b1f49b4a4" alt="project mock" class="w-full h-56 object-cover"/>
+          <div class="overlay">
+            <div class="text-left w-full px-4">
+              <h3 class="text-lg font-semibold">Album Cover — "Echoes"</h3>
+              <p class="text-xs text-gray-300">Cover art and campaign visuals</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- card 3 -->
+        <div class="overlay-hover rounded-xl overflow-hidden border border-[rgba(255,255,255,0.04)] fade-up">
+          <img src="https://images.unsplash.com/photo-1483794344563-d27a8d07f5d6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0f9f4be1a6d3" alt="project mock" class="w-full h-56 object-cover"/>
+          <div class="overlay">
+            <div class="text-left w-full px-4">
+              <h3 class="text-lg font-semibold">Brand Kit — "Aurora"</h3>
+              <p class="text-xs text-gray-300">Logo, color system, templates</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="design.html#more" class="px-6 py-3 rounded-lg border-2 border-[var(--accent1)] inline-block">View More Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 px-6 md:px-20 fade-up">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Let’s Build Something Beautiful</h2>
+      <p class="text-gray-300 mb-6">Tell me about your project — whether it's a single poster or a full brand system, I’ll design visuals that perform.</p>
+      <div class="flex gap-4 justify-center">
+        <a href="mailto:your@email.com" class="btn-gradient px-6 py-3 rounded-lg font-semibold">Email Me</a>
+        <a href="index.html#contact" class="btn-outline-green px-5 py-3 rounded-lg font-semibold">Request Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-sm text-gray-400 border-t border-[rgba(255,255,255,0.04)]">
+    © 2025 GruHub — Designed by Jonathan Imalsh
+  </footer>
+
+  <script>
+    // navbar blur
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', ()=> nav.classList.toggle('blur-nav', window.scrollY>20));
+
+    // intersection observer for fade-up
+    const items = document.querySelectorAll('.fade-up');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+    },{threshold:0.15});
+    items.forEach(i=>io.observe(i));
+  </script>
+</body>
+</html>

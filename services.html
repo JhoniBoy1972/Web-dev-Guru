@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GruHub | Services</title>
+  
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --text: #ffffff;
+      --accent: #00ff80;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Manrope", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .blur-nav {
+      backdrop-filter: blur(12px);
+      background-color: rgba(13, 13, 11, 0.9);
+      box-shadow: 0 0 15px rgba(0, 255, 128, 0.05);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.9s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    .symbol {
+      position: absolute;
+      font-size: 5rem;
+      color: var(--accent);
+      opacity: 0.06;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+
+<body class="text-white">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-4 px-6 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold text-[var(--accent)]">GruHub</a>
+    <ul class="hidden md:flex space-x-8 text-sm">
+      <li><a href="index.html#home" class="hover:text-[var(--accent)]">Home</a></li>
+      <li><a href="index.html#skills" class="hover:text-[var(--accent)]">Skills</a></li>
+      <li><a href="index.html#projects" class="hover:text-[var(--accent)]">Projects</a></li>
+      <li><a href="index.html#contact" class="hover:text-[var(--accent)]">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+    <div class="fade-up max-w-2xl">
+      <h1 class="text-[2.8rem] md:text-[4rem] font-bold mb-4">
+        My <span class="text-[var(--accent)]">Services</span>
+      </h1>
+      <p class="text-gray-400 text-base md:text-lg leading-relaxed">
+        From full-stack web development to music production and design — I create tailored digital experiences that reflect your vision.
+      </p>
+    </div>
+
+    <div class="symbol" style="top:15%; left:12%;">{ }</div>
+    <div class="symbol" style="top:65%; left:70%;">&lt;/&gt;</div>
+    <div class="symbol" style="top:40%; left:85%;">()</div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-24 px-8 md:px-20 fade-up">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+
+      <!-- Web Design -->
+      <a href="web_services.html" class="border border-gray-700 p-8 rounded-2xl hover:border-[var(--accent)] hover-scale transition-all duration-300">
+        <h3 class="text-2xl font-semibold text-[var(--accent)] mb-3">Web Design & Dev</h3>
+        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+          Custom responsive websites built for speed, style, and scalability — blending performance with personality.
+        </p>
+        <span class="text-[var(--accent)] text-xs uppercase tracking-wider">View Packages →</span>
+      </a>
+
+      <!-- Music Production -->
+      <a href="music.html" class="border border-gray-700 p-8 rounded-2xl hover:border-[var(--accent)] hover-scale transition-all duration-300">
+        <h3 class="text-2xl font-semibold text-[var(--accent)] mb-3">Music & Sound</h3>
+        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+          Original beats, soundtracks, and sonic branding — crafted with precision and creativity.
+        </p>
+        <span class="text-[var(--accent)] text-xs uppercase tracking-wider">Explore Studio →</span>
+      </a>
+
+      <!-- Graphic Design -->
+      <a href="design.html" class="border border-gray-700 p-8 rounded-2xl hover:border-[var(--accent)] hover-scale transition-all duration-300">
+        <h3 class="text-2xl font-semibold text-[var(--accent)] mb-3">Branding & Design</h3>
+        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+          Posters, brand kits, and logos that tell stories visually — creative identity design that stands out.
+        </p>
+        <span class="text-[var(--accent)] text-xs uppercase tracking-wider">See Work →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center py-20 fade-up">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Let’s Build Together</h2>
+    <p class="text-gray-400 mb-8">Have a project in mind? Let's collaborate and bring your idea to life.</p>
+    <a href="index.html#contact" class="border-2 border-[var(--accent)] px-8 py-3 rounded-lg hover:bg-[var(--accent)] hover:text-black transition-all duration-300 font-semibold">
+      Contact Me
+    </a>
+  </section>
+
+  <footer class="py-6 text-center text-sm text-gray-500 border-t border-gray-800">
+    © 2025 GruHub — Designed by Jonathan Imalsh
+  </footer>
+
+  <script>
+    const nav = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("blur-nav", window.scrollY > 20);
+    });
+
+    const elements = document.querySelectorAll(".fade-up");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+    elements.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

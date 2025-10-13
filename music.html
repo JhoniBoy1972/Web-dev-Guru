@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GruHub | Music Production</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --bg2: #001C1A;
+      --text: #ffffff;
+      --accent: #00FF80;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, var(--bg2), var(--bg));
+      color: var(--text);
+      font-family: "Manrope", sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.9s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .blur-nav {
+      backdrop-filter: blur(12px);
+      background-color: rgba(13, 13, 11, 0.85);
+      box-shadow: 0 0 15px rgba(0, 255, 128, 0.05);
+    }
+
+    /* Floating wave animation */
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 200px;
+      top: 50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(0,255,128,0.15) 0%, transparent 70%);
+      animation: waveMove 8s ease-in-out infinite alternate;
+      opacity: 0.15;
+    }
+    @keyframes waveMove {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-40px); }
+    }
+
+    .hover-scale:hover { transform: scale(1.05); transition: transform 0.3s ease; }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-4 px-6 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-[var(--accent)]">GruHub</h1>
+    <ul class="hidden md:flex space-x-8 text-sm">
+      <li><a href="index.html" class="hover:text-[var(--accent)]">Home</a></li>
+      <li><a href="web.html" class="hover:text-[var(--accent)]">Web</a></li>
+      <li><a href="music.html" class="text-[var(--accent)]">Music</a></li>
+      <li><a href="design.html" class="hover:text-[var(--accent)]">Design</a></li>
+      <li><a href="index.html#contact" class="hover:text-[var(--accent)]">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+    <div class="wave"></div>
+    <div class="fade-up">
+      <h1 class="text-[3rem] md:text-[4.5rem] font-bold tracking-wide mb-4">
+        <span class="text-[var(--accent)]">Crafting</span> Sonic Identities
+      </h1>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
+        I create immersive soundscapes — from cinematic themes to modern audio logos — merging technology and creativity.
+      </p>
+      <a href="#portfolio" class="border-2 border-[var(--accent)] px-8 py-3 rounded-lg hover:bg-[var(--accent)] hover:text-black transition-all duration-300 font-semibold">Listen to My Work</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 px-6 text-center fade-up">
+    <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">Music Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-xl font-semibold text-[var(--accent)] mb-2">Production</h3>
+        <p class="text-gray-400 text-sm">Custom compositions that define your brand or project’s sonic identity.</p>
+      </div>
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-xl font-semibold text-[var(--accent)] mb-2">Mixing & Mastering</h3>
+        <p class="text-gray-400 text-sm">Balanced, rich, and professional sound crafted to perfection.</p>
+      </div>
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-xl font-semibold text-[var(--accent)] mb-2">Audio Branding</h3>
+        <p class="text-gray-400 text-sm">Distinct sonic logos and sound cues tailored to your visual identity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-20 px-6 fade-up text-center">
+    <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">Sound Portfolio</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-lg font-semibold mb-2 text-[var(--accent)]">Ambient Beats</h3>
+        <audio controls class="w-full mt-2">
+          <source src="#" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-lg font-semibold mb-2 text-[var(--accent)]">Cinematic Logo Intro</h3>
+        <audio controls class="w-full mt-2">
+          <source src="#" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-lg font-semibold mb-2 text-[var(--accent)]">Electro Groove</h3>
+        <audio controls class="w-full mt-2">
+          <source src="#" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 text-center fade-up border-t border-gray-800">
+    <h2 class="text-3xl font-bold text-[var(--accent)] mb-4">Let’s Create Your Sound</h2>
+    <p class="text-gray-400 mb-8">Whether you’re a brand, artist, or creator — let’s craft something that truly resonates.</p>
+    <a href="mailto:your@email.com" class="border-2 border-[var(--accent)] px-8 py-3 rounded-lg hover:bg-[var(--accent)] hover:text-black transition-all duration-300 font-semibold">Contact Me</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-500">
+    © 2025 GruHub — Designed by Jonathan Imalsh
+  </footer>
+
+  <script>
+    const nav = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("blur-nav", window.scrollY > 20);
+    });
+
+    const elements = document.querySelectorAll(".fade-up");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+    elements.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GruHub | Web Dev & Design</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --text: #ffffff;
+      --accent: #00ff80;
+    }
+
+    /* Glow flicker animation */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 0px var(--accent); }
+  50% { box-shadow: 0 0 10px var(--accent); }
+  100% { box-shadow: 0 0 0px var(--accent); }
+}
+
+.skill-card {
+  transition: all 0.3s ease;
+}
+.skill-card.visible {
+  animation: glowPulse 1.5s ease-in-out;
+}
+
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Manrope", sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.9s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .blur-nav {
+      backdrop-filter: blur(12px);
+      background-color: rgba(13, 13, 11, 0.85);
+      box-shadow: 0 0 15px rgba(0, 255, 128, 0.05);
+    }
+
+    .symbol {
+      position: absolute;
+      font-size: 5rem;
+      color: var(--accent);
+      opacity: 0.07;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .hover-scale:hover { transform: scale(1.05); transition: transform 0.3s ease; }
+  </style>
+</head>
+
+<body class="text-white">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-4 px-6 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-[var(--accent)]">GruHub</h1>
+    <ul class="hidden md:flex space-x-8 text-sm">
+      <li><a href="#home" class="hover:text-[var(--accent)]">Home</a></li>
+      <li><a href="#about" class="hover:text-[var(--accent)]">About</a></li>
+      <li><a href="#skills" class="hover:text-[var(--accent)]">Skills</a></li>
+      <li><a href="services.html" class="hover:text-[var(--accent)]">Services</a></li>
+      <li><a href="#projects" class="hover:text-[var(--accent)]">Projects</a></li>
+      <li><a href="#contact" class="hover:text-[var(--accent)]">Contact</a></li>
+    </ul>
+    <button class="md:hidden text-[var(--accent)] text-3xl">&#9776;</button>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+    <div class="fade-up">
+      <h1 class="text-[3.5rem] md:text-[5rem] font-bold tracking-wide">
+        <span class="text-[var(--accent)]">Jonathan</span> Perera
+      </h1>
+      <h2 class="text-lg md:text-2xl text-gray-400 mb-8">Web Developer • Designer • Creator</h2>
+      <a href="#projects" class="border-2 border-[var(--accent)] px-8 py-3 rounded-lg hover:bg-[var(--accent)] hover:text-black transition-all duration-300 font-semibold">Explore My Work</a>
+    </div>
+
+    <div class="symbol" style="top:15%; left:12%;">{ }</div>
+    <div class="symbol" style="top:65%; left:70%;">&lt;/&gt;</div>
+    <div class="symbol" style="top:40%; left:85%;">()</div>
+     <div class="symbol" style="top:70%; right:85%;">#</div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="min-h-screen flex flex-col justify-center items-center px-6 text-center fade-up">
+    <h2 class="text-4xl font-bold text-[var(--accent)] mb-6">About Me</h2>
+    <p class="max-w-2xl text-gray-300 leading-relaxed">
+      I’m a passionate developer and designer who loves to blend technology and creativity.
+      I create clean, functional websites, apps, and visuals that deliver impact — combining
+      tech precision with bold digital art direction.
+    </p>
+  </section>
+
+<!-- Main Skills -->
+<section id="skills" class="py-20 flex flex-col justify-center items-center px-6 fade-up">
+  <h2 class="text-3xl md:text-4xl font-bold text-[var(--accent)] mb-6">Main Skills</h2>
+  <p class="text-gray-400 mb-8 max-w-xl text-center text-sm md:text-base">
+    My core technical stack for building high-quality, modern, and scalable web experiences.
+  </p>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+    <div class="skill-card border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale">
+      <h3 class="text-sm md:text-lg font-semibold">HTML</h3>
+    </div>
+    <div class="skill-card border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale">
+      <h3 class="text-sm md:text-lg font-semibold">CSS / Tailwind</h3>
+    </div>
+    <div class=" skill-card border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale">
+      <h3 class="text-sm md:text-lg font-semibold">JavaScript</h3>
+    </div>
+    <div class=" skill-card border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale">
+      <h3 class="text-sm md:text-lg font-semibold">Firebase / APIs</h3>
+    </div>
+    <div class=" skill-card border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale">
+      <h3 class="text-sm md:text-lg font-semibold">GitHub</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Creative Skills -->
+<section id="creative" class="py-16 flex flex-col justify-center items-center px-6 fade-up border-t border-gray-800">
+  <h2 class="text-3xl md:text-4xl font-bold text-[var(--accent)] mb-6">Creative Skills</h2>
+  <p class="text-gray-400 mb-8 max-w-xl text-center text-sm md:text-base">
+    I combine design, motion, and sound to craft expressive, visually-driven digital experiences.
+  </p>
+  <div class=" skill-card grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
+    <a href="branding.html" class="border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale block">
+      <h3 class="text-sm md:text-lg font-semibold">Photoshop</h3>
+    </a>
+    <a href="branding.html" class="border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale block">
+      <h3 class="text-sm md:text-lg font-semibold">Illustrator</h3>
+    </a>
+    <a href="branding.html" class="border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale block">
+      <h3 class="text-sm md:text-lg font-semibold">Canva</h3>
+    </a>
+    <a href="music.html" class="border border-gray-700 p-4 rounded-lg hover:border-[var(--accent)] hover-scale block">
+      <h3 class="text-sm md:text-lg font-semibold">Music Production</h3>
+    </a>
+  </div>
+</section>
+
+
+
+  <!-- Projects -->
+  <section id="projects" class="min-h-screen flex flex-col justify-center items-center px-6 fade-up">
+    <h2 class="text-4xl font-bold text-[var(--accent)] mb-8">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full text-center">
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-xl font-semibold text-[var(--accent)] mb-2">Portfolio Website</h3>
+        <p class="text-gray-400 text-sm">Modern responsive portfolio built using Tailwind & Firebase.</p>
+      </div>
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-xl font-semibold text-[var(--accent)] mb-2">App UI Design</h3>
+        <p class="text-gray-400 text-sm">Minimal mobile app interface with clean green-black contrast.</p>
+      </div>
+      <div class="border border-gray-700 p-6 rounded-xl hover:border-[var(--accent)] hover-scale">
+        <h3 class="text-xl font-semibold text-[var(--accent)] mb-2">Music Visual Poster</h3>
+        <p class="text-gray-400 text-sm">Dynamic promotional poster blending sound & motion visuals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="min-h-screen flex flex-col justify-center items-center px-6 fade-up">
+    <h2 class="text-4xl font-bold text-[var(--accent)] mb-4">Get in Touch</h2>
+    <form class="max-w-md w-full flex flex-col space-y-4">
+      <input type="text" placeholder="Your Name" class="bg-transparent border border-gray-700 p-3 rounded-lg text-white placeholder-gray-500 focus:border-[var(--accent)] outline-none" />
+      <input type="email" placeholder="Your Email" class="bg-transparent border border-gray-700 p-3 rounded-lg text-white placeholder-gray-500 focus:border-[var(--accent)] outline-none" />
+      <textarea placeholder="Your Message" rows="4" class="bg-transparent border border-gray-700 p-3 rounded-lg text-white placeholder-gray-500 focus:border-[var(--accent)] outline-none"></textarea>
+      <button type="submit" class="border-2 border-[var(--accent)] px-6 py-3 rounded-lg hover:bg-[var(--accent)] hover:text-black transition-colors">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-500">
+    © 2025 GruHub — Designed by Jonathan Imalsh
+  </footer>
+
+<script>
+  // Navbar blur on scroll
+  const nav = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    nav.classList.toggle("blur-nav", window.scrollY > 20);
+  });
+
+  // Fade-up + glow for skills
+  const elements = document.querySelectorAll(".fade-up, .skill-card");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 });
+  elements.forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
