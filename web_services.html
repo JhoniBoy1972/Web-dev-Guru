@@ -3,110 +3,170 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GruHub | Web Design</title>
+  <title>GruHub | Web Design Sri Lanka</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     .blur-nav {
       backdrop-filter: blur(10px);
       background: rgba(13, 13, 11, 0.85);
     }
   </style>
 </head>
+
 <body class="bg-[#0D0D0B] text-white font-sans">
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300">
-    <h1 class="text-2xl font-bold text-[#00FF80]">GruHub</h1>
-    <ul class="flex space-x-6 text-white text-sm">
-      <li><a href="/index.html" class="hover:text-[#00FF80] transition">Home</a></li>
-      <li><a href="#services" class="hover:text-[#00FF80] transition">Services</a></li>
-      <li><a href="#pricing" class="hover:text-[#00FF80] transition">Pricing</a></li>
-      <li><a href="#contact" class="hover:text-[#00FF80] transition">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
-    <h2 class="text-5xl md:text-6xl font-extrabold mb-4 animate-fadeIn">Building Modern Websites That Perform.</h2>
-    <p class="text-gray-400 text-lg md:w-2/3 mb-8 animate-fadeInUp">From sleek portfolios to scalable web applications, GruHub brings ideas to life with precision and style.</p>
-    <div class="space-x-4 animate-fadeInUp">
-      <a href="#pricing" class="bg-[#00FF80] text-[#0D0D0B] px-6 py-3 rounded-md font-semibold hover:bg-[#00cc70] transition">Get Started</a>
-      <a href="#services" class="border border-[#00FF80] px-6 py-3 rounded-md font-semibold hover:bg-[#00FF80] hover:text-[#0D0D0B] transition">View Plans</a>
+<!-- Navbar -->
+<nav id="navbar" class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300">
+  <h1 class="text-2xl font-bold text-[#00FF80]">GruHub</h1>
+  <ul class="flex space-x-6 text-sm">
+    <li><a href="#home" class="hover:text-[#00FF80]">Home</a></li>
+    <li><a href="#services" class="hover:text-[#00FF80]">Services</a></li>
+    <li><a href="#projects" class="hover:text-[#00FF80]">Projects</a></li>
+    <li><a href="#pricing" class="hover:text-[#00FF80]">Pricing</a></li>
+    <li><a href="#contact" class="hover:text-[#00FF80]">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+  <h2 class="text-5xl md:text-6xl font-extrabold mb-4">
+    Professional Websites for Sri Lankan Businesses
+  </h2>
+  <p class="text-gray-400 text-lg md:w-2/3 mb-8">
+    Helping startups, tuition classes, shops, and companies across Sri Lanka build fast, modern and affordable websites.
+  </p>
+  <div class="space-x-4">
+    <a href="#pricing" class="bg-[#00FF80] text-[#0D0D0B] px-6 py-3 rounded-md font-semibold hover:bg-[#00cc70]">
+      View Pricing
+    </a>
+    <a href="#projects" class="border border-[#00FF80] px-6 py-3 rounded-md font-semibold hover:bg-[#00FF80] hover:text-[#0D0D0B]">
+      See My Work
+    </a>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-24 px-6 md:px-20 bg-[#101010]">
+  <h3 class="text-3xl font-bold mb-12 text-center text-[#00FF80]">Services</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="p-6 bg-[#121212] rounded-xl hover:border-[#00FF80] border transition">
+      <h4 class="text-xl font-semibold mb-2">Website Design</h4>
+      <p class="text-gray-400 text-sm">Modern, mobile-friendly designs suitable for Sri Lankan audiences.</p>
     </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-24 px-6 md:px-20 bg-[#101010]">
-    <h3 class="text-3xl font-bold mb-12 text-center text-[#00FF80]">What I Do</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="p-6 bg-[#121212] rounded-xl border border-transparent hover:border-[#00FF80] hover:-translate-y-2 transition">
-        <h4 class="text-xl font-semibold mb-2">Web Design</h4>
-        <p class="text-gray-400 text-sm">Creating visually stunning and user-focused designs tailored to your brand.</p>
-      </div>
-      <div class="p-6 bg-[#121212] rounded-xl border border-transparent hover:border-[#00FF80] hover:-translate-y-2 transition">
-        <h4 class="text-xl font-semibold mb-2">Web Development</h4>
-        <p class="text-gray-400 text-sm">Building robust, scalable websites using modern frameworks and best practices.</p>
-      </div>
-      <div class="p-6 bg-[#121212] rounded-xl border border-transparent hover:border-[#00FF80] hover:-translate-y-2 transition">
-        <h4 class="text-xl font-semibold mb-2">SEO & Optimization</h4>
-        <p class="text-gray-400 text-sm">Enhancing performance and visibility through clean code and optimization.</p>
-      </div>
-      <div class="p-6 bg-[#121212] rounded-xl border border-transparent hover:border-[#00FF80] hover:-translate-y-2 transition">
-        <h4 class="text-xl font-semibold mb-2">Ongoing Support</h4>
-        <p class="text-gray-400 text-sm">Offering continuous updates, monitoring, and assistance for your project.</p>
-      </div>
+    <div class="p-6 bg-[#121212] rounded-xl hover:border-[#00FF80] border transition">
+      <h4 class="text-xl font-semibold mb-2">Website Development</h4>
+      <p class="text-gray-400 text-sm">Fast, secure websites built using modern technologies.</p>
     </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section id="pricing" class="py-24 px-6 md:px-20">
-    <h3 class="text-3xl font-bold mb-12 text-center text-[#00FF80]">Pricing Plans</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-[#121212] rounded-xl p-8 text-center border border-[#1A1A1A] hover:border-[#00FF80] transition">
-        <h4 class="text-xl font-bold mb-4">Basic</h4>
-        <p class="text-gray-400 mb-6">Perfect for small startups or personal portfolios.</p>
-        <p class="text-3xl font-extrabold mb-6">$99</p>
-        <button class="bg-[#00FF80] text-[#0D0D0B] px-6 py-3 rounded-md font-semibold hover:bg-[#00cc70] transition">Choose Plan</button>
-      </div>
-      <div class="bg-[#121212] rounded-xl p-8 text-center border border-[#00FF80] scale-105 shadow-lg">
-        <h4 class="text-xl font-bold mb-4">Professional</h4>
-        <p class="text-gray-400 mb-6">Ideal for growing businesses with more advanced needs.</p>
-        <p class="text-3xl font-extrabold mb-6">$249</p>
-        <button class="bg-[#00FF80] text-[#0D0D0B] px-6 py-3 rounded-md font-semibold hover:bg-[#00cc70] transition">Choose Plan</button>
-      </div>
-      <div class="bg-[#121212] rounded-xl p-8 text-center border border-[#1A1A1A] hover:border-[#00FF80] transition">
-        <h4 class="text-xl font-bold mb-4">Premium</h4>
-        <p class="text-gray-400 mb-6">For clients seeking full customization and priority support.</p>
-        <p class="text-3xl font-extrabold mb-6">$499</p>
-        <button class="bg-[#00FF80] text-[#0D0D0B] px-6 py-3 rounded-md font-semibold hover:bg-[#00cc70] transition">Choose Plan</button>
-      </div>
+    <div class="p-6 bg-[#121212] rounded-xl hover:border-[#00FF80] border transition">
+      <h4 class="text-xl font-semibold mb-2">SEO & Performance</h4>
+      <p class="text-gray-400 text-sm">Optimized for Google Sri Lanka search results.</p>
     </div>
-  </section>
+    <div class="p-6 bg-[#121212] rounded-xl hover:border-[#00FF80] border transition">
+      <h4 class="text-xl font-semibold mb-2">Maintenance & Support</h4>
+      <p class="text-gray-400 text-sm">Ongoing support, updates & backups.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Call to Action -->
-  <section id="contact" class="py-20 bg-[#101010] text-center">
-    <h3 class="text-3xl font-bold mb-4 text-[#00FF80]">Ready to Build Your Next Website?</h3>
-    <p class="text-gray-400 mb-8">Let’s create something extraordinary together.</p>
-    <a href="mailto:gruhub@example.com" class="bg-[#00FF80] text-[#0D0D0B] px-8 py-3 rounded-md font-semibold hover:bg-[#00cc70] transition">Contact Me</a>
-  </section>
+<!-- Projects -->
+<section id="projects" class="py-24 px-6 md:px-20">
+  <h3 class="text-3xl font-bold mb-12 text-center text-[#00FF80]">Projects in Sri Lanka</h3>
 
-  <!-- Footer -->
-  <footer class="py-6 text-center text-gray-500 text-sm bg-[#0B0B0A]">
-    © 2025 GruHub. All rights reserved.
-  </footer>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-  <script>
-    // Navbar blur effect on scroll
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (window.scrollY > 10) {
-        nav.classList.add('blur-nav');
-      } else {
-        nav.classList.remove('blur-nav');
-      }
-    });
-  </script>
+    <!-- Project 1 -->
+    <a href="https://exampleproject1.lk" target="_blank" class="group">
+      <div class="bg-[#121212] rounded-xl overflow-hidden border hover:border-[#00FF80] transition">
+        <img src="https://via.placeholder.com/600x400" alt="Project 1" class="group-hover:scale-105 transition">
+        <div class="p-4">
+          <h4 class="font-semibold">Tuition Class Website</h4>
+          <p class="text-gray-400 text-sm">Online class platform for local students.</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project 2 -->
+    <a href="https://exampleproject2.lk" target="_blank" class="group">
+      <div class="bg-[#121212] rounded-xl overflow-hidden border hover:border-[#00FF80] transition">
+        <img src="https://via.placeholder.com/600x400" alt="Project 2" class="group-hover:scale-105 transition">
+        <div class="p-4">
+          <h4 class="font-semibold">Small Business Website</h4>
+          <p class="text-gray-400 text-sm">Business profile website for Sri Lanka.</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project 3 -->
+    <a href="https://exampleproject3.lk" target="_blank" class="group">
+      <div class="bg-[#121212] rounded-xl overflow-hidden border hover:border-[#00FF80] transition">
+        <img src="https://via.placeholder.com/600x400" alt="Project 3" class="group-hover:scale-105 transition">
+        <div class="p-4">
+          <h4 class="font-semibold">Educational Platform</h4>
+          <p class="text-gray-400 text-sm">Student management & content delivery.</p>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="py-24 px-6 md:px-20 bg-[#101010]">
+  <h3 class="text-3xl font-bold mb-12 text-center text-[#00FF80]">Pricing (Sri Lanka)</h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <div class="bg-[#121212] p-8 rounded-xl text-center border">
+      <h4 class="text-xl font-bold mb-4">Basic</h4>
+      <p class="text-gray-400 mb-6">Personal or small business site</p>
+      <p class="text-3xl font-extrabold mb-6">LKR 25,000</p>
+      <button class="bg-[#00FF80] text-[#0D0D0B] px-6 py-3 rounded-md font-semibold">
+        Choose Plan
+      </button>
+    </div>
+
+    <div class="bg-[#121212] p-8 rounded-xl text-center border border-[#00FF80] scale-105">
+      <h4 class="text-xl font-bold mb-4">Professional</h4>
+      <p class="text-gray-400 mb-6">Growing businesses & tuition classes</p>
+      <p class="text-3xl font-extrabold mb-6">LKR 60,000</p>
+      <button class="bg-[#00FF80] text-[#0D0D0B] px-6 py-3 rounded-md font-semibold">
+        Choose Plan
+      </button>
+    </div>
+
+    <div class="bg-[#121212] p-8 rounded-xl text-center border">
+      <h4 class="text-xl font-bold mb-4">Premium</h4>
+      <p class="text-gray-400 mb-6">Fully custom systems & portals</p>
+      <p class="text-3xl font-extrabold mb-6">LKR 120,000</p>
+      <button class="bg-[#00FF80] text-[#0D0D0B] px-6 py-3 rounded-md font-semibold">
+        Choose Plan
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-20 text-center">
+  <h3 class="text-3xl font-bold mb-4 text-[#00FF80]">Let’s Work Together</h3>
+  <p class="text-gray-400 mb-8">Available for projects across Sri Lanka 🇱🇰</p>
+  <a href="mailto:gruhub@example.com" class="bg-[#00FF80] text-[#0D0D0B] px-8 py-3 rounded-md font-semibold">
+    Contact Me
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="py-6 text-center text-gray-500 text-sm bg-[#0B0B0A]">
+  © 2025 GruHub – Sri Lanka
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  window.scrollY > 10 ? nav.classList.add('blur-nav') : nav.classList.remove('blur-nav');
+});
+</script>
+
 </body>
 </html>
